@@ -14,7 +14,7 @@ interface Props {
 
 function PokeList({ pokemons }: Props): JSX.Element {
 	return (
-		<Flex>
+		<Flex direction={{ base: "column", sm: "row" }} wrap={"wrap"}>
 			{pokemons.map((pokemon) => (
 				<Avatar
 					key={pokemon.name}

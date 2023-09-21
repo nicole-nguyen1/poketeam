@@ -96,7 +96,6 @@ function GetPokemonButton({
 				(rej) => rej.error
 			);
 			if (response != null) {
-				console.log(response);
 				setRegionName(response.data.pokedex[0].pokemon_v2_region.name);
 				setPokedex(response.data.pokedex[0].pokemon_v2_pokemondexnumbers);
 				setError(response.error);
