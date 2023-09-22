@@ -34,7 +34,7 @@ export function Header() {
 
 	return (
 		<header className={classes.header}>
-			<Container size="md" className={classes.inner}>
+			<Container size="lg" className={classes.inner}>
 				<Title order={3}>Poketeam</Title>
 				{/* <Group gap={5} visibleFrom="xs">
 					{items}

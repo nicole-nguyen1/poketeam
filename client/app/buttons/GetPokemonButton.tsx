@@ -74,12 +74,14 @@ const query = `query getSpecies($id: Int) {
 interface Props {
 	setError: React.Dispatch<React.SetStateAction<string>>;
 	setPokemons: React.Dispatch<React.SetStateAction<Array<Pokemons>>>;
+	setFilteredPokemons: React.Dispatch<React.SetStateAction<Array<Pokemons>>>;
 	pokedexID: number | null;
 }
 
 function GetPokemonButton({
 	setError,
 	setPokemons,
+	setFilteredPokemons,
 	pokedexID,
 }: Props): JSX.Element {
 	const [pokedex, setPokedex] = useState<Array<PokemonsPayload>>([]);
@@ -96,7 +98,6 @@ function GetPokemonButton({
 				(rej) => rej.error
 			);
 			if (response != null) {
-				console.log(response);
 				setRegionName(response.data.pokedex[0].pokemon_v2_region.name);
 				setPokedex(response.data.pokedex[0].pokemon_v2_pokemondexnumbers);
 				setError(response.error);
@@ -133,6 +134,7 @@ function GetPokemonButton({
 				return { id, pokedex_number, name, sprite };
 			});
 			setPokemons(pokemon);
+			setFilteredPokemons(pokemon);
 		}
 	}, [pokedex, regionName, setPokemons]);
 
