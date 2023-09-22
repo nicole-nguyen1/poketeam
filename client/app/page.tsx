@@ -9,11 +9,14 @@ import { Container, Flex, Grid, Title } from "@mantine/core";
 
 import classes from "./page.module.css";
 import GymDropdown from "./dropdowns/GymDropdown";
+import PokemonSearch from "./PokemonSearch";
 
 export default function HomePage() {
 	const [error, setError] = useState("");
 	const [pokemons, setPokemons] = useState<Array<Pokemons>>([]);
 	const [pokedexID, setPokedexID] = useState<number | null>(null);
+	const [filteredPokemons, setFilteredPokemons] =
+		useState<Array<Pokemons>>(pokemons);
 
 	return (
 		<>
@@ -31,16 +34,21 @@ export default function HomePage() {
 								pokedexID={pokedexID}
 								setError={setError}
 								setPokemons={setPokemons}
+								setFilteredPokemons={setFilteredPokemons}
 							/>
 						</Flex>
+						<PokemonSearch
+							pokemons={pokemons}
+							setFilteredPokemons={setFilteredPokemons}
+						/>
 						{error != null && <p>{error}</p>}
-						<PokeList pokemons={pokemons} />
+						<PokeList pokemons={filteredPokemons} />
 					</Grid.Col>
 					<Grid.Col span={4}>
 						<GymDropdown />
 					</Grid.Col>
 					<Grid.Col span={4}>
-						<Title order={4}>Your Team</Title>
+						<Title order={4}>Your Team hello</Title>
 					</Grid.Col>
 				</Grid>
 			</Container>
