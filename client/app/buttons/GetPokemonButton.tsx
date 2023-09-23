@@ -78,7 +78,7 @@ interface Props {
 	pokedexID: number | null;
 }
 
-function GetPokemonButton({
+export default function GetPokemonButton({
 	setError,
 	setPokemons,
 	setFilteredPokemons,
@@ -114,6 +114,7 @@ function GetPokemonButton({
 				const name = pokemon.pokemon_v2_pokemonspecy.name;
 				const pokemonForms =
 					pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemons;
+				let types = getPokemonTypes(pokemonForms, 0);
 
 				if (pokemonForms.length > 1) {
 					const regionSpecificPokemonIdx = pokemonForms.findIndex(
@@ -127,11 +128,12 @@ function GetPokemonButton({
 								.pokemon_v2_pokemonformsprites[0].sprites
 						);
 						id = spritesJSON["front_default"].match(/\d+/);
+						types = getPokemonTypes(pokemonForms, regionSpecificPokemonIdx);
 					}
 				}
 				const sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
-				return { id, pokedex_number, name, sprite };
+				return { id, pokedex_number, name, sprite, types };
 			});
 			setPokemons(pokemon);
 			setFilteredPokemons(pokemon);
@@ -145,4 +147,25 @@ function GetPokemonButton({
 	);
 }
 
-export default GetPokemonButton;
+function getPokemonTypes(
+	pokemons: Array<{
+		pokemon_v2_pokemonforms: Array<{
+			id: string;
+			name: string;
+			form_name: string;
+			pokemon_v2_pokemonformsprites: Array<{
+				sprites: string;
+			}>;
+		}>;
+		pokemon_v2_pokemontypes: Array<{
+			pokemon_v2_type: {
+				name: string;
+			};
+		}>;
+	}>,
+	idx: number
+): Array<string> {
+	return pokemons[idx].pokemon_v2_pokemontypes.map(
+		(type) => type.pokemon_v2_type.name
+	);
+}

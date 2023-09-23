@@ -10,6 +10,7 @@ import { Container, Flex, Grid, Title } from "@mantine/core";
 import classes from "./page.module.css";
 import GymDropdown from "./dropdowns/GymDropdown";
 import PokemonSearch from "./PokemonSearch";
+import PokemonFilterAndSearch from "./dropdowns/filter/PokemonFilterAndSearch";
 
 export default function HomePage() {
 	const [error, setError] = useState("");
@@ -37,7 +38,7 @@ export default function HomePage() {
 								setFilteredPokemons={setFilteredPokemons}
 							/>
 						</Flex>
-						<PokemonSearch
+						<PokemonFilterAndSearch
 							pokemons={pokemons}
 							setFilteredPokemons={setFilteredPokemons}
 						/>
@@ -48,7 +49,7 @@ export default function HomePage() {
 						<GymDropdown />
 					</Grid.Col>
 					<Grid.Col span={4}>
-						<Title order={4}>Your Team hello</Title>
+						<Title order={4}>Your Team</Title>
 					</Grid.Col>
 				</Grid>
 			</Container>
