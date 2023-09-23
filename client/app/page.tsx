@@ -39,6 +39,7 @@ export default function HomePage() {
 							/>
 						</Flex>
 						<PokemonFilterAndSearch
+							pokedexID={pokedexID}
 							pokemons={pokemons}
 							setFilteredPokemons={setFilteredPokemons}
 						/>

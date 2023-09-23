@@ -94,12 +94,12 @@ export default function GetPokemonButton({
 				"getSpecies",
 				{ id: pokedexID }
 			).then(
-				async (res) => await res?.data,
+				async (res) => await res?.data?.data,
 				(rej) => rej.error
 			);
 			if (response != null) {
-				setRegionName(response.data.pokedex[0].pokemon_v2_region.name);
-				setPokedex(response.data.pokedex[0].pokemon_v2_pokemondexnumbers);
+				setRegionName(response.pokedex[0].pokemon_v2_region.name);
+				setPokedex(response.pokedex[0].pokemon_v2_pokemondexnumbers);
 				setError(response.error);
 			}
 		};

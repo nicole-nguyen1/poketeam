@@ -9,13 +9,16 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import PokemonSearch from "../../PokemonSearch";
 import PokemonTypeFilter from "./PokemonTypeFilter";
+import PokemonEvolutionFilter from "./PokemonEvolutionFilter";
 
 interface Props {
+	pokedexID: number | null;
 	pokemons: Array<Pokemons>;
 	setFilteredPokemons: React.Dispatch<React.SetStateAction<Array<Pokemons>>>;
 }
 
 export default function PokemonFilterAndSearch({
+	pokedexID,
 	pokemons,
 	setFilteredPokemons,
 }: Props): JSX.Element {
@@ -45,6 +48,11 @@ export default function PokemonFilterAndSearch({
 			</Group>
 			<Collapse in={opened}>
 				<PokemonTypeFilter
+					pokemons={pokemons}
+					setFilteredPokemons={setFilteredPokemons}
+				/>
+				<PokemonEvolutionFilter
+					pokedexID={pokedexID}
 					pokemons={pokemons}
 					setFilteredPokemons={setFilteredPokemons}
 				/>
