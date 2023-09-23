@@ -6,6 +6,7 @@ export interface Pokemons {
 	pokedex_number: string;
 	name: string;
 	sprite?: string;
+	types: Array<string>;
 }
 
 interface Props {
