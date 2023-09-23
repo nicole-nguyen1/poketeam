@@ -63,7 +63,6 @@ export default function GameDropdown({
 						}));
 
 					setGames(games);
-					setPokedexID(games[0].pokedex_id);
 					setError(response.error);
 				}
 			};
