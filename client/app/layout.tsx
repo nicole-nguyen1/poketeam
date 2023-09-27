@@ -1,7 +1,8 @@
 import "@mantine/core/styles.css";
 import React from "react";
-import { MantineProvider, ColorSchemeScript } from "@mantine/core";
+import { MantineProvider, ColorSchemeScript, Loader } from "@mantine/core";
 import { theme } from "../theme";
+import RelayEnvironment from "./relay/RelayEnvironment";
 
 export const metadata = {
 	title: "Mantine Next.js template",
@@ -20,7 +21,11 @@ export default function RootLayout({ children }: { children: any }) {
 				/>
 			</head>
 			<body>
-				<MantineProvider theme={theme}>{children}</MantineProvider>
+				<MantineProvider theme={theme}>
+					<RelayEnvironment>
+						<React.Suspense fallback={<Loader />}>{children}</React.Suspense>
+					</RelayEnvironment>
+				</MantineProvider>
 			</body>
 		</html>
 	);

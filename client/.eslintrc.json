@@ -9,6 +9,7 @@
     "prettier",
     "prettier/@typescript-eslint"
   ],
+  "ignorePatterns": ["webpack.config.js", "node_modules/", "dist/", "__generated__"],
   "plugins": ["@typescript-eslint", "react-hooks"],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
