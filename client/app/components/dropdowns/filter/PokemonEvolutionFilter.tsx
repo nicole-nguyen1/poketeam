@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useMemo, useState } from "react";
 import { Pokemons } from "../../PokeList";
 import FilterBase from "./FilterBase";
-import { fetchPokeAPIData } from "../../utils/pokeAPIFetch";
+import { fetchPokeAPIData } from "../../../utils/pokeAPIFetch";
 import { flatten, uniq, uniqBy } from "lodash";
 
 interface EvolutionPayload {

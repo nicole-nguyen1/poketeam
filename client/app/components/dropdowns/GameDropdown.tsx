@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchPokeAPIData } from "../utils/pokeAPIFetch";
+import { fetchPokeAPIData } from "../../utils/pokeAPIFetch";
 import { Select } from "@mantine/core";
 
 interface PokemonGamePayload {

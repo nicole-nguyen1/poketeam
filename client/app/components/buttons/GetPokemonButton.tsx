@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchPokeAPIData } from "../utils/pokeAPIFetch";
+import { fetchPokeAPIData } from "../../utils/pokeAPIFetch";
 import { Pokemons } from "../PokeList";
 import { Button } from "@mantine/core";
 

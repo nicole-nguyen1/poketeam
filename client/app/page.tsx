@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 import { Header } from "./Header";
-import GameDropdown from "./dropdowns/GameDropdown";
-import PokeList, { Pokemons } from "./PokeList";
-import GetPokemonButton from "./buttons/GetPokemonButton";
+import GameDropdown from "./components/dropdowns/GameDropdown";
+import PokeList, { Pokemons } from "./components/PokeList";
+import GetPokemonButton from "./components/buttons/GetPokemonButton";
 import { Container, Flex, Grid, Title } from "@mantine/core";
 
 import classes from "./page.module.css";
-import GymDropdown from "./dropdowns/GymDropdown";
-import PokemonSearch from "./PokemonSearch";
-import PokemonFilterAndSearch from "./dropdowns/filter/PokemonFilterAndSearch";
+import GymDropdown from "./components/dropdowns/GymDropdown";
+import PokemonSearch from "./components/PokemonSearch";
+import PokemonFilterAndSearch from "./components/dropdowns/filter/PokemonFilterAndSearch";
 
 export default function HomePage() {
 	const [error, setError] = useState("");
